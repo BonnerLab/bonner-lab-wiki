@@ -2,8 +2,8 @@
 
 On a Mac,
 
-Go to the website displayed at the bottom left of the Crestron screen. Install whatever it asks you to.
-Go to Settings > Displays.
-Click on the + sign at the bottom right of the displayed screens.
-Click Mirror to _____.
-Enter the passcode on the bottom left of the Crestron screen.
+1. Go to the website displayed at the bottom left of the Crestron screen. Install whatever it asks you to.
+2. Go to Settings > Displays.
+3. Click on the + sign at the bottom right of the displayed screens.
+4. Click Mirror to _____.
+5. Enter the passcode on the bottom left of the Crestron screen.
