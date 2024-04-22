@@ -1,4 +1,4 @@
-# AirPlay on the Crestron screen inlab
+# AirPlay on the Crestron screen in lab
 
 On a Mac,
 
