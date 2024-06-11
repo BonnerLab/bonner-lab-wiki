@@ -11,8 +11,6 @@
     - `sudo chmod -R g+s /data`
     - `sudo setfacl -m g::rwx /data`
     - `sudo setfacl -d -m g::rwx /data`
-    - `sudo setfacl -m o::r /data`
-    - `sudo setfacl -d -m o::r /data`
   - Ensure that the output of `getfacl /data` is:
     ```
     # file: data
@@ -21,10 +19,10 @@
     # flags: -s-
     user::rwx
     group::rwx
-    other::r--
+    other::r-x
     default:user::rwx
     default:group::rwx
-    default:other::r--
+    default:other::r-x
     ```
 
 ### Installing `miniconda`
