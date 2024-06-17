@@ -29,3 +29,7 @@
 
 Use the installer to install to `/data/shared/miniconda3`.
 
+### Other software
+
+- Install the Nvidia drivers (ask brain-it to do it)
+- Install `git`
