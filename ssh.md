@@ -36,28 +36,36 @@ Here's the SSH config file at `/.ssh/config` on my local machine:
 # This block makes all my connections (Host *) persistent so that SSHing again into the same machine uses the existing tunnel instead of creating a new one. It also uses my private key for authenticating to every server.
 
 Host *
-   ControlMaster auto
-   ControlPath ~/.ssh/control-%r@%h:%p
-   ControlPersist 3s
-   IdentityFile /home/raj/.ssh/id_ed25519  # path to my local private key used for key-based authentication
+    ControlMaster auto
+    ControlPath ~/.ssh/control-%r@%h:%p
+    ControlPersist 3s
+    IdentityFile ~/.ssh/id_ed25519
 
-# The following blocks describe aliases to the Bonner Lab workstation, Bonner Lab storage server, MARCC login node and MARCC data transfer node respectively.
-
-Host lab-server
-    HostName 10.160.192.70  # Bonner Lab workstation
-    User rgautha1@jh.edu  # my username on the Bonner Lab workstation
-
-Host lab-storage
-    HostName 10.99.95.227
-    User rgautha1@jh.edu
-
-Host marcc
+Host rockfish
     HostName login.rockfish.jhu.edu
     User rgautha1
 
-Host marcc-dtn
-    HostName rfdtn1.rockfish.jhu.edu
+Host rockfish-interactive
+    ForwardAgent yes
+    StrictHostKeyChecking no
+    ProxyCommand ssh rockfish "salloc -J interact -N 1-1 -n 1 --mem=4G --time=30:00 -p defq srun --pty bash"
     User rgautha1
+
+Host lab-*
+    User rgautha1
+    ProxyJump rockfish
+
+Host lab-1
+    HostName 10.160.191.207
+
+Host lab-2
+    HostName 10.160.191.74 
+
+Host lab-old
+    HostName 10.160.192.70
+
+Host lab-storage
+    HostName 10.99.95.227
 ```
 
 With the above configuration, if I run `ssh lab-server`, I get immediate access to a terminal on the Bonner Lab workstation, which is super convenient.
